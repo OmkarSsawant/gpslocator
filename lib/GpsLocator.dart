@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:gpslocator/gpslocator.dart';
+import 'package:gpslocator/gpslocatorN.dart';
 import 'package:gpslocator/gpslocatora.dart';
 enum GPSPriority { BALANCED_POWER_ACCURACY, HIGH_ACCURACY, LOW_POWER, NO_POWER }
 
