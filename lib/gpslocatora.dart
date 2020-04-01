@@ -1,6 +1,5 @@
-
-
 import 'package:gpslocator/GpsLocator.dart';
+
 abstract class GPSLocator {
   //This is stream of current location
   Stream get locationStream;
@@ -24,4 +23,3 @@ abstract class GPSLocator {
 //stops location stream
   Future<bool> get stopStream;
 }
-

@@ -56,10 +56,6 @@ class Gpslocator {
       _locationStream = _eventChannel.receiveBroadcastStream();
     return _locationStream;
   }
-//TODO: remove test from android too
-  static Future<String> get test async {
-    return await _channel.invokeMethod('test');
-  }
 
   static Future<Map> get lastLocation async {
     return await _channel.invokeMethod('getLastLocation');

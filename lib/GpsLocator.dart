@@ -5,7 +5,6 @@ import 'package:gpslocator/gpslocatora.dart';
 enum GPSPriority { BALANCED_POWER_ACCURACY, HIGH_ACCURACY, LOW_POWER, NO_POWER }
 
 class GpsLocator extends GPSLocator {
-  GpsLocator({Map<String, Double> configs}) {}
 
   @override
   Future<bool> get checkPermission async => Gpslocator.checkOnlyPermission;
