@@ -119,4 +119,4 @@ await gpsLocator.isGpsActive.then((isActive) async {
 
 ```
 
-![example](https://github.com/OmkarSsawant/gpslocator/blob/master/asset/_into.gif)
+![example](https://github.com/OmkarSsawant/Simple_Solutions/blob/master/_into.gif)

@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:gpslocator/gpslocatorN.dart';
 import 'package:gpslocator/gpslocatora.dart';
