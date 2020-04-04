@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:gpslocator/GpsLocator.dart';
 
 void main() => runApp(MyApp());
@@ -35,10 +34,6 @@ await gpsLocator.isGpsActive.then((isActive) async {
                 print("-------------------  " + r.toString());
               });
             });
-          }else{
-            setState(() {
-            "Please Enable the Gps";
-            });
           }
            
         });
@@ -71,7 +66,7 @@ await gpsLocator.isGpsActive.then((isActive) async {
                      Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Text("Location Stream ",style: Theme.of(context).textTheme.headline.copyWith(color:Colors.white),),
+              Text("Location Stream ",),
               StreamBuilder(
                 stream: gpsLocator.locationStream,
                 builder: (BuildContext context, AsyncSnapshot snashot) {
@@ -88,7 +83,7 @@ await gpsLocator.isGpsActive.then((isActive) async {
                 },
               ),
               SizedBox(height:20),
-              Text("Last  Location",style: Theme.of(context).textTheme.headline.copyWith(color:Colors.white),),
+              Text("Last  Location",),
               Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
