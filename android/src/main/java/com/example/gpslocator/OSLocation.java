@@ -96,13 +96,13 @@ public class OSLocation implements OnFailureListener, OnSuccessListener<Location
         int priority;
 
         if(fi!=null){
-            fastestInterval = (long) fi;
+            fastestInterval = Long.valueOf(fi.toString());
         }else {
             fastestInterval = this.createLocationRequest().getFastestInterval();
         }
 
         if(i!=null){
-            interval = (long) i;
+            interval = Long.valueOf(i.toString());
         }else{
             interval = this.createLocationRequest().getInterval();
         }
