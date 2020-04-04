@@ -1,6 +1,6 @@
 name: gpslocator
 description: A new flutter plugin which gets the current device location stream ,last location and handles location permissions.
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/OmkarSsawant/gpslocator
 
 environment:
