@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:gpslocator/GpsLocator.dart';
 
@@ -9,11 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Map test = {
-    'Latitude':0,
-    'Longitude':0,
-    'Accuracy':0
-  };
+  Location  test = Location(accuracy: 0,latitude: 0,longitude:0);
   bool canStart = false;
   final GpsLocator gpsLocator = new GpsLocator();
   @override
@@ -67,17 +65,17 @@ await gpsLocator.isGpsActive.then((isActive) async {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text("Location Stream ",),
-              StreamBuilder(
+              StreamBuilder<Location>(
                 stream: gpsLocator.locationStream,
-                builder: (BuildContext context, AsyncSnapshot snashot) {
+                builder: (BuildContext context, AsyncSnapshot<Location> snashot) {
                   if (!snashot.hasData)
                     return Center(child: CircularProgressIndicator());
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text(snashot.data['Latitude'].toString(),style:TextStyle(fontFamily: 'Raleway',fontSize: 20,color: Colors.white),),
-                      Text(snashot.data['Longitude'].toString(),style:TextStyle(fontFamily: 'Raleway',fontSize: 20,color: Colors.white)),
-                      Text(snashot.data['Accuracy'].toString().substring(0,4),style:TextStyle(fontFamily: 'Raleway',fontSize: 20,color: Colors.white))
+                      Text(snashot.data.latitude.toString(),style:TextStyle(fontFamily: 'Raleway',fontSize: 20,color: Colors.white),),
+                      Text(snashot.data.longitude.toString(),style:TextStyle(fontFamily: 'Raleway',fontSize: 20,color: Colors.white)),
+                      Text(snashot.data.accuracy.toString().substring(0,4),style:TextStyle(fontFamily: 'Raleway',fontSize: 20,color: Colors.white))
                     ],
                   );
                 },
@@ -88,11 +86,11 @@ await gpsLocator.isGpsActive.then((isActive) async {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                      
-                      Text(test['Latitude'].toString(),style:TextStyle(fontFamily: 'Raleway',color: Colors.white),),
+                      Text(test.latitude.toString(),style:TextStyle(fontFamily: 'Raleway',color: Colors.white),),
                       
-                      Text(test['Longitude'].toString(),style:TextStyle(fontFamily: 'Raleway',color: Colors.white)),
+                      Text(test.longitude.toString(),style:TextStyle(fontFamily: 'Raleway',color: Colors.white)),
                       
-                      Text(test['Accuracy'].toString(),style:TextStyle(fontFamily: 'Raleway',color: Colors.white))
+                      Text(test.accuracy.toString(),style:TextStyle(fontFamily: 'Raleway',color: Colors.white))
                     
                     ],
                   ),

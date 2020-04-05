@@ -10,7 +10,7 @@ abstract class GPSLocator {
   /// 
   /// **- params**  Latitude , Longitude , Accuracy 
  
-  Future<Map> get lastLocation;
+  Future<Location> get lastLocation;
 
  /// `Checks` for `Permissions` if needed
  /// 
@@ -47,3 +47,5 @@ abstract class GPSLocator {
 ///`stops location stream`
   Future<bool> get stopStream;
 }
+
+

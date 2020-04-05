@@ -1,7 +1,34 @@
 
+
 import 'package:gpslocator/gpslocatorN.dart';
 import 'package:gpslocator/gpslocatora.dart';
 enum GPSPriority { BALANCED_POWER_ACCURACY, HIGH_ACCURACY, LOW_POWER, NO_POWER }
+class Location{
+
+
+  final double latitude;
+  final double longitude;
+  final double accuracy;
+
+  Location({this.latitude, this.longitude, this.accuracy});
+
+  factory Location.fromMap(Map map){
+    return Location(
+      latitude: map['Latitude'],
+      longitude: map['Longitude'],
+      accuracy: map['Accuracy']
+    );
+  }
+
+ Map toMap()=>{
+     'Latitude' : this.latitude,
+     'Longitude' : this.longitude,
+     'Accuracy' : this.accuracy
+ };
+
+
+}
+
 
 class GpsLocator extends GPSLocator {
 
@@ -15,10 +42,10 @@ class GpsLocator extends GPSLocator {
       Gpslocator.handlePermission(_packageName);
 
   @override
-  Future<Map> get lastLocation async => Gpslocator.lastLocation;
+  Future<Location> get lastLocation async => Location.fromMap(await Gpslocator.lastLocation);
 
   @override
-  Stream get locationStream => Gpslocator.locationStream;
+  Stream get locationStream => Gpslocator.locationStream.map<Location>((map)=> Location.fromMap(map));
 
   @override
   Future<bool> get isGpsActive async => Gpslocator.isActive;
